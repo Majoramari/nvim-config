@@ -12,7 +12,15 @@ return {
 		},
 		opts = {
 			automatic_installation = true,
-			ensure_installed = { "lua_ls", "biome" },
+			ensure_installed = {
+				"lua_ls",
+				"biome",
+				"clangd",
+				"cmake",
+				"html",
+				"cssls",
+				"emmet_ls",
+			},
 			handlers = {
 				function(server_name)
 					require("lspconfig")[server_name].setup({
@@ -77,7 +85,7 @@ return {
 				},
 				float = {
 					source = "if_many",
-					border = "rounded",
+					border = "single",
 				},
 				underline = true,
 				update_in_insert = false,
@@ -91,7 +99,9 @@ return {
 					local buf = event.buf
 					local map = vim.keymap.set
 
-					map("n", "K", vim.lsp.buf.hover, { buffer = buf, desc = "Hover" })
+					map("n", "K", function()
+						vim.lsp.buf.hover({ border = "single" })
+					end)
 					map("n", "gd", vim.lsp.buf.definition, { buffer = buf, desc = "Go to Definition" })
 					map("n", "gD", vim.lsp.buf.declaration, { buffer = buf, desc = "Go to Declaration" })
 					map("n", "gi", vim.lsp.buf.implementation, { buffer = buf, desc = "Go to Implementation" })

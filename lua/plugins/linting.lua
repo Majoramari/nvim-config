@@ -10,6 +10,10 @@ spec.config = function()
 	-- specify linters per filetype
 	lint.linters_by_ft = {
 		lua = { "selene" },
+		cpp = { "cpplint" },
+		cmake = { "cmakelint" },
+		html = { "markuplint" },
+		css = { "stylelint" },
 	}
 
 	local lint_augroup = vim.api.nvim_create_augroup("nvim-lint", { clear = true })

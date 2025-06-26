@@ -1,6 +1,6 @@
 return {
 	"chrisgrieser/nvim-origami",
-  event = { "BufReadPre", "BufNewFile" },
+	event = { "BufReadPost", "BufNewFile" },
 	init = function()
 		vim.opt.foldlevel = 99
 		vim.opt.foldlevelstart = 99
@@ -12,7 +12,7 @@ return {
 			enabled = true,
 			padding = 3,
 			lineCount = {
-				template = "󰁂 %d",
+				template = "........ 󰁂 %d lines ..........",
 				hlgroup = "Comment",
 			},
 			diagnosticsCount = true,
@@ -20,7 +20,10 @@ return {
 		},
 		autoFold = {
 			enabled = true,
-			kinds = { "comment", "imports" }, ---@type lsp.FoldingRangeKind[]
+			kinds = {
+				-- "comment",
+				"imports",
+			}, ---@type lsp.FoldingRangeKind[]
 		},
 		foldKeymaps = {
 			setup = true,

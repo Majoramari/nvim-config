@@ -4,6 +4,9 @@ return {
 	opts = {
 		formatters_by_ft = {
 			lua = { "stylua" },
+			cpp = { "clang-format" },
+			cmake = { "gersemi" },
+      html = {"prettierd"},
 			css = { "prettierd" },
 		},
 	},
