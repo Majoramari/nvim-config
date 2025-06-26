@@ -1,0 +1,23 @@
+return {
+  "folke/which-key.nvim",
+  event = "VeryLazy",
+  dependencies = {
+    { 'echasnovski/mini.icons', version = '*' },
+    { "nvim-tree/nvim-web-devicons", opts = {} },
+  },
+  opts = {
+    preset = "helix",
+    win = {
+      border    = "single",
+    },
+  },
+  keys = {
+    {
+      "<leader>?",
+      function()
+        require("which-key").show({ global = false })
+      end,
+      desc = "Buffer Local Keymaps (which-key)",
+    },
+  },
+}
