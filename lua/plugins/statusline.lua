@@ -43,7 +43,7 @@ return {
 			sections = {
 				lualine_a = { "mode" },
 				lualine_b = { "branch", "diff" },
-				lualine_c = {},
+				lualine_c = { "lsp_status", "buffers", "searchcount" },
 				lualine_x = {},
 				lualine_y = { "filetype", { wakatime_today_component() } },
 				lualine_z = { "progress" },
