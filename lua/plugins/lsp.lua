@@ -1,5 +1,4 @@
 return {
-	-- Mason LSP Config: Manages LSP server installation
 	{
 		"williamboman/mason-lspconfig.nvim",
 		event = { "BufReadPre", "BufNewFile" },
@@ -20,12 +19,31 @@ return {
 				"html",
 				"cssls",
 				"emmet_ls",
+				"zls",
 			},
 			handlers = {
 				function(server_name)
-					require("lspconfig")[server_name].setup({
-						capabilities = require("blink.cmp").get_lsp_capabilities(),
-					})
+					local nvim_lsp = require("lspconfig")
+					local capabilities = require("blink.cmp").get_lsp_capabilities()
+
+					if server_name == "clangd" then
+						nvim_lsp.clangd.setup({
+							capabilities = capabilities,
+							cmd = {
+								"clangd",
+								"--background-index",
+								"--suggest-missing-includes",
+								"--header-insertion=never",
+								"--compile-commands-dir=build",
+								"--clang-tidy",
+								"--cache=.out/.cache/clangd",
+							},
+						})
+					else
+						nvim_lsp[server_name].setup({
+							capabilities = capabilities,
+						})
+					end
 				end,
 			},
 		},
@@ -55,7 +73,7 @@ return {
 					},
 					diagnostics = {
 						signs = false,
-						underline = true,
+						underline = false,
 						update_in_insert = false,
 						severity_sort = true,
 						float = {
@@ -68,28 +86,20 @@ return {
 		},
 		config = function()
 			vim.diagnostic.config({
-				signs = {
-					text = {
-						[vim.diagnostic.severity.ERROR] = "",
-						[vim.diagnostic.severity.WARN] = "",
-						[vim.diagnostic.severity.INFO] = "",
-						[vim.diagnostic.severity.HINT] = "",
-					},
-				},
-				virtual_text = {
-					source = "always",
-					prefix = "➤",
-					format = function(diagnostic)
-						return diagnostic.message:sub(1, 60) .. (diagnostic.message:len() > 60 and "..." or "")
-					end,
-				},
-				float = {
-					source = "if_many",
-					border = "single",
-				},
-				underline = true,
+				underline = false,
+				virtual_text = false,
 				update_in_insert = false,
 				severity_sort = true,
+				signs = {
+					-- Modern API requires defining 'text' per severity level under 'signs'
+					-- Define sign text directly using `text` table with severity keys
+					text = {
+						[vim.diagnostic.severity.ERROR] = "",
+						[vim.diagnostic.severity.WARN] = "",
+						[vim.diagnostic.severity.HINT] = "",
+						[vim.diagnostic.severity.INFO] = "",
+					},
+				},
 			})
 
 			-- LSP key mappings on attach
