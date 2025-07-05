@@ -8,6 +8,7 @@ vim.g.maplocalleader = "\\"
 --- Core Editing & Text Manipulation
 ----------------------------------------
 map("n", "<C-a>", "ggVG", { desc = "Select entire buffer", noremap = true, silent = true })
+map("i", "<C-e>", "<C-o>dW", { desc = "Delete next word", noremap = true, silent = true })
 
 ----------------------------------------
 --- Clipboard Operations
