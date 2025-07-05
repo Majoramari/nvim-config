@@ -1,7 +1,11 @@
+local tb = require("telescope.builtin")
+local themes = require("telescope.themes")
+local actions = require("telescope.actions")
+
 local find_files = {
 	"<leader>ff",
 	function()
-		require("telescope.builtin").find_files()
+		tb.find_files()
 	end,
 	desc = "Find files",
 	noremap = true,
@@ -11,7 +15,7 @@ local find_files = {
 local live_grep = {
 	"<leader>fg",
 	function()
-		require("telescope.builtin").live_grep()
+		tb.live_grep()
 	end,
 	desc = "Live Grep",
 	noremap = true,
@@ -21,7 +25,7 @@ local live_grep = {
 local buffers = {
 	"<leader>fb",
 	function()
-		require("telescope.builtin").buffers()
+		tb.buffers()
 	end,
 	desc = "Running buffers",
 	noremap = true,
@@ -31,7 +35,7 @@ local buffers = {
 local edit_nvim_config = {
 	"<leader>fn",
 	function()
-		require("telescope.builtin").find_files({
+		tb.find_files({
 			cwd = vim.fn.stdpath("config"),
 		})
 	end,
@@ -43,7 +47,7 @@ local edit_nvim_config = {
 local help_tags = {
 	"<leader>fh",
 	function()
-		require("telescope.builtin").help_tags({
+		tb.help_tags({
 			enable_preview = true,
 		})
 	end,
@@ -55,11 +59,10 @@ local help_tags = {
 local colorscheme = {
 	"<leader>ft",
 	function()
-		require("telescope.builtin").colorscheme({
+		tb.colorscheme({
 			enable_preview = true,
 			attach_mappings = function(_, map)
 				map("i", "<CR>", function(prompt_bufnr)
-					local actions = require("telescope.actions")
 					local state = require("telescope.actions.state")
 					local theme = state.get_selected_entry().value
 					actions.close(prompt_bufnr)
@@ -94,10 +97,9 @@ return {
 		buffers,
 		edit_nvim_config,
 		colorscheme,
-    help_tags,
+		help_tags,
 	},
 	config = function()
-		local actions = require("telescope.actions")
 		require("telescope").setup({
 			defaults = {
 				mappings = {
@@ -130,7 +132,7 @@ return {
 			},
 			extensions = {
 				["ui-select"] = {
-					require("telescope.themes").get_dropdown({}),
+					themes.get_dropdown({}),
 				},
 				fzf = {},
 			},
