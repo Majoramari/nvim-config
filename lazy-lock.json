@@ -1,5 +1,6 @@
 {
   "actions-preview.nvim": { "branch": "master", "commit": "36513ad213855d497b7dd3391a24d1d75d58e36f" },
+  "autosession.nvim": { "branch": "main", "commit": "c558ba60b7610ef51c0aed39c384a674293d2674" },
   "ayu": { "branch": "master", "commit": "30e53f8a0f3708e92c84d4df676898cd16b8b64f" },
   "barbar.nvim": { "branch": "master", "commit": "53b5a2f34b68875898f0531032fbf090e3952ad7" },
   "blink.cmp": { "branch": "main", "commit": "9bcb14b43852a6f2bfd5ac9ef29cb5cf09b1b39b" },
@@ -27,7 +28,6 @@
   "mini.files": { "branch": "main", "commit": "49c855977e9f4821d1ed8179ed44fe098b93ea2a" },
   "mini.icons": { "branch": "main", "commit": "397ed3807e96b59709ef3292f0a3e253d5c1dc0a" },
   "mini.move": { "branch": "main", "commit": "f471ecb98395781827ef1dffee61afe1af0ace29" },
-  "mini.sessions": { "branch": "main", "commit": "a74bcbf8c461a7b95a89013a5f5c6759db0577c6" },
   "mini.splitjoin": { "branch": "main", "commit": "ebde0e2a33ec983ade3b2bb3c495b3751b458e4c" },
   "mini.surround": { "branch": "main", "commit": "1a2b59c77a0c4713a5bd8972da322f842f4821b1" },
   "noice.nvim": { "branch": "main", "commit": "cf758e9df66451889aab56613a21b8673f045ec2" },
@@ -55,6 +55,7 @@
   "trouble.nvim": { "branch": "main", "commit": "748ca2789044607f19786b1d837044544c55e80a" },
   "undotree": { "branch": "master", "commit": "15d91b0afe04ea9ba5cd53e30190d1602af9a925" },
   "vague": { "branch": "main", "commit": "41b6b9a985c9091d0ec8571191e89d6950968cec" },
+  "vim-startify": { "branch": "master", "commit": "b81dfa54b979aac27179fe0583c2b92f04c8ddad" },
   "vim-wakatime": { "branch": "master", "commit": "cf51327a9e08935569614d1cb24e779ee9f45519" },
   "which-key.nvim": { "branch": "main", "commit": "fcbf4eea17cb299c02557d576f0d568878e354a4" }
 }
