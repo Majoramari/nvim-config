@@ -5,7 +5,7 @@ return {
   "echasnovski/mini.files",
   opts = function(_, opts)
     opts.mappings = vim.tbl_deep_extend("force", opts.mappings or {}, {
-      close = "q",
+      close = "<ESC>",
       go_in = "l",
       go_in_plus = "<CR>",
       go_out = "H",
