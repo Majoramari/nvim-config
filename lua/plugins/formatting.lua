@@ -6,8 +6,9 @@ return {
 			lua = { "stylua" },
 			cpp = { "clang-format" },
 			cmake = { "gersemi" },
-      html = {"prettierd"},
+			html = { "prettierd" },
 			css = { "prettierd" },
+			bash = { "shfmt" },
 		},
 	},
 	keys = {
@@ -15,7 +16,7 @@ return {
 			"<C-f>",
 			function()
 				require("conform").format({
-					lsp_format = true,
+					lsp_format = "fallback",
 					async = false,
 					timeout_ms = 500,
 				})

@@ -20,6 +20,7 @@ return {
 				"cssls",
 				"emmet_ls",
 				"zls",
+        "bashls",
 			},
 			handlers = {
 				function(server_name)
