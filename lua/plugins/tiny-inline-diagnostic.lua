@@ -3,18 +3,13 @@ return {
 	event = "VeryLazy",
 	priority = 1000,
 	opts = {
-		virtual_text = false,
-		signs = {
-			left = "",
-			right = "",
-			diag = "●",
-			arrow = "    ",
-			up_arrow = "    ",
-			vertical = " │",
-			vertical_end = " └",
-		},
-		blend = {
-			factor = 0.22,
+		preset = "amongus",
+		virtual_text = true,
+		hi = {
+			error = "DiagnosticError", -- Highlight group for error messages
+			warn = "DiagnosticWarn", -- Highlight group for warning messages
+			info = "DiagnosticInfo", -- Highlight group for informational messages
+			hint = "DiagnosticHint", -- Highlight group for hint or suggestion messages
 		},
 		options = {
 			multilines = {
