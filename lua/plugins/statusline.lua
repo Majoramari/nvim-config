@@ -31,7 +31,7 @@ end
 
 return {
 	"nvim-lualine/lualine.nvim",
-	event = "VeryLazy",
+	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		require("lualine").setup({
 			options = {
@@ -46,7 +46,20 @@ return {
 				lualine_c = { "lsp_status", "buffers", "searchcount" },
 				lualine_x = {},
 				lualine_y = { "filetype", { wakatime_today_component() } },
-				lualine_z = { "progress" },
+				lualine_z = {
+					{
+						"macro",
+						fmt = function()
+							local reg = vim.fn.reg_recording()
+							if reg ~= "" then
+								return "Recording @" .. reg
+							end
+							return nil
+						end,
+						draw_empty = false,
+					},
+					"progress",
+				},
 			},
 		})
 	end,
