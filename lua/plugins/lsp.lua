@@ -90,9 +90,10 @@ return {
 				virtual_text = false,
 				update_in_insert = false,
 				severity_sort = true,
+				float = {
+					boarder = "single",
+				},
 				signs = {
-					-- Modern API requires defining 'text' per severity level under 'signs'
-					-- Define sign text directly using `text` table with severity keys
 					text = {
 						[vim.diagnostic.severity.ERROR] = "",
 						[vim.diagnostic.severity.WARN] = "",
@@ -117,7 +118,9 @@ return {
 					map("n", "gi", vim.lsp.buf.implementation, { buffer = buf, desc = "Go to Implementation" })
 					map("n", "go", vim.lsp.buf.type_definition, { buffer = buf, desc = "Go to Type Definition" })
 					map("n", "gr", vim.lsp.buf.references, { buffer = buf, desc = "Find References" })
-					map("n", "ge", vim.diagnostic.open_float, { buffer = buf, desc = "Show Diagnostic" })
+					map("n", "ge", function()
+						vim.diagnostic.open_float(nil, { border = "single" })
+					end, { buffer = buf, desc = "Show Diagnostic" })
 					map("n", "<F2>", vim.lsp.buf.rename, { buffer = buf, desc = "Rename" })
 				end,
 			})
