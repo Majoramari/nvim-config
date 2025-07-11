@@ -22,7 +22,7 @@ return {
 				chat = true,
 				command = true,
 				model = {
-					model = "deepseek-coder:6.7b",
+					model = "codegemma:latest",
 					temperature = 0.4,
 					top_p = 1,
 					min_p = 0.05,
