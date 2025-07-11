@@ -2,22 +2,22 @@ return {
 	"folke/noice.nvim",
 	event = "VeryLazy",
 	opts = {
-		lsp = {
-			documentation = {
-				opts = {
-					border = {
-						style = "single",
-					},
-				},
-			},
-			hover = {
-				opts = {
-					border = {
-						style = "single",
-					},
-				},
-			},
-		},
+		-- lsp = {
+		-- 	documentation = {
+		-- 		opts = {
+		-- 			border = {
+		-- 				style = "single",
+		-- 			},
+		-- 		},
+		-- 	},
+		-- 	hover = {
+		-- 		opts = {
+		-- 			border = {
+		-- 				style = "single",
+		-- 			},
+		-- 		},
+		-- 	},
+		-- },
 		dependencies = {
 			"MunifTanjim/nui.nvim",
 			{ "rcarriga/nvim-notify", opts = { render = "compact" } },
