@@ -19,12 +19,12 @@ return {
 				enabled = true,
 				border = "single",
 			},
-			documentation = {
-				auto_show = true,
-        window = {
-          border = "single",
-        }
-			},
+			-- documentation = {
+			-- 	auto_show = true,
+			--      window = {
+			--        border = "single",
+			--      }
+			-- },
 		},
 
 		sources = {
