@@ -60,6 +60,39 @@ map("n", "N", "Nzzzv", vim.tbl_extend("force", nav_opts, { desc = "Previous matc
 map("n", "H", "^", { noremap = true, silent = true, desc = "Go to first non-blank character" })
 
 ----------------------------------------
+--- Quickfix
+----------------------------------------
+map({ "n", "v" }, "<localleader>qq", function()
+	for _, win in ipairs(vim.api.nvim_list_wins()) do
+		local info = vim.fn.getwininfo(win)[1]
+		if info and info.quickfix == 1 then
+			return vim.cmd("cclose")
+		end
+	end
+	if #vim.fn.getqflist() > 0 then
+		return vim.cmd("botright copen")
+	end
+	print("Quickfix list is empty")
+end, { noremap = true, silent = true, desc = "Toggle Quickfix List" })
+map({ "n", "v" }, "<localleader>e", "<CMD>cnext<CR>zz", { noremap = true, silent = true, desc = "Quickfix Next" })
+map({ "n", "v" }, "<localleader>w", "<CMD>cprev<CR>zz", { noremap = true, silent = true, desc = "Quickfix Previous" })
+map({ "n", "v" }, "<localleader>qC", "<CMD>cexpr []<CR>", {
+	noremap = true,
+	silent = true,
+	desc = "Clear Quickfix List",
+})
+map({ "n", "v" }, "<localleader>qe", "<CMD>cnewer<CR>", {
+	noremap = true,
+	silent = true,
+	desc = "Quickfix Next List",
+})
+map({ "n", "v" }, "<localleader>qw", "<CMD>colder<CR>", {
+	noremap = true,
+	silent = true,
+	desc = "Quickfix Previous List",
+})
+
+----------------------------------------
 --- Quality of Life Improvements
 ----------------------------------------
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { noremap = true, silent = true, desc = "Clear search highlights" })
