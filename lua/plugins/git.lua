@@ -14,13 +14,19 @@ return {
 		keys = {
 			{
 				"<leader>gk",
-				function()
-					vim.cmd("Gitsigns preview_hunk")
-				end,
+				"<CMD>Gitsigns preview_hunk_inline<CR>",
 				mode = "n",
 				noremap = true,
 				silent = true,
-				desc = "Git Preview hunk",
+				desc = "Git Preview hunk inline",
+			},
+			{
+				"<leader>gb",
+				"<CMD>Gitsigns blame<CR>",
+				mode = "n",
+				noremap = true,
+				silent = true,
+				desc = "Git Blame",
 			},
 			{
 				"<leader>gt",
