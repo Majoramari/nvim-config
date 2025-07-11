@@ -13,6 +13,7 @@ spec.config = function()
 		cmake = { "cmakelint" },
 		html = { "markuplint" },
 		css = { "stylelint" },
+		go = { "golangcilint" },
 	}
 
 	local lint_augroup = vim.api.nvim_create_augroup("nvim-lint", { clear = true })

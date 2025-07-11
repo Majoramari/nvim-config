@@ -1,6 +1,6 @@
 return {
 	"stevearc/conform.nvim",
-	event = { "BufReadPre", "BufNewFile" },
+	event = { "InsertEnter" },
 	opts = {
 		formatters_by_ft = {
 			lua = { "stylua" },
@@ -9,6 +9,7 @@ return {
 			html = { "prettierd" },
 			css = { "prettierd" },
 			bash = { "shfmt" },
+			go = { "goimports", "gofumpt" },
 		},
 	},
 	keys = {
