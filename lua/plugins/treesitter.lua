@@ -3,7 +3,8 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		version = false,
 		build = ":TSUpdate",
-		event = { "BufReadPre", "BufNewFile" },
+		cmd = { "TSUpdate" },
+		lazy = false,
 		config = function()
 			require("nvim-treesitter.configs").setup({
 				ensure_installed = {
@@ -36,7 +37,7 @@ return {
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-context",
-		event = "BufReadPre",
+		event = "VeryLazy",
 		enabled = true,
 		opts = {
 			enable = true, -- enable treesitter-context
