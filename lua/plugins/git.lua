@@ -1,6 +1,7 @@
 return {
 	{
 		"linrongbin16/gitlinker.nvim",
+    event = "VeryLazy",
 		cmd = "GitLink",
 		opts = {},
 		keys = {
@@ -10,6 +11,7 @@ return {
 	},
 	{
 		"lewis6991/gitsigns.nvim",
+    event = "VeryLazy",
 		opts = {},
 		keys = {
 			{
