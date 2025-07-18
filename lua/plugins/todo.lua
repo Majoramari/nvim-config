@@ -6,7 +6,7 @@
 -- WARNING: ???
 return {
 	"folke/todo-comments.nvim",
-	event = { "BufRead", "BufNewFile" },
+	event = "VeryLazy",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-telescope/telescope.nvim",
