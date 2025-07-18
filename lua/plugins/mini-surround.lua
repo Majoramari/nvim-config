@@ -1,6 +1,6 @@
 return {
 	"echasnovski/mini.surround",
-	event = { "BufReadPre", "BufNewFile" },
+	event = "VeryLazy",
 	version = false,
 	opts = {
 		n_lines = 100,
