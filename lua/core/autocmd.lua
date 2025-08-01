@@ -71,7 +71,7 @@ vim.api.nvim_create_autocmd("FileType", {
 	pattern = "rust",
 	callback = function()
 		-- Run: Reuses shared terminal
-		vim.keymap.set("n", "<localleader>cr", cargo_run, { buffer = true, desc = "Cargo Run (reuses terminal)" })
+		vim.keymap.set("n", "<localleader>cr", cargo_run, { buffer = true, desc = "Cargo Run" })
 
 		-- Build/Test/Clean: Each opens a new terminal
 		vim.keymap.set("n", "<localleader>cb", function()
