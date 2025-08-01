@@ -1,5 +1,5 @@
 require("core.settings")
 require("core.keymaps")
-require("core.autocmd")
 require("core.bootstrap")
+require("core.autocmd")
 require("core.colorscheme").setup()
