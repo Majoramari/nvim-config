@@ -6,7 +6,7 @@ return {
 		open_mapping = [[<c-\>]],
 		direction = "float",
 		float_opts = {
-			border = "single",
+			border = "rounded",
 			winblend = 3,
 			highlights = {
 				border = "Normal",
