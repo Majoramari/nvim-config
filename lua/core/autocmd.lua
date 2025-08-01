@@ -38,3 +38,52 @@ vim.api.nvim_create_autocmd("FileType", {
 		)
 	end,
 })
+
+local Terminal = require("toggleterm.terminal").Terminal
+
+-- Shared terminal for `cargo run`
+local run_term = Terminal:new({
+	direction = "horizontal",
+	hidden = true,
+	close_on_exit = false,
+})
+
+local function cargo_run()
+	if not run_term:is_open() then
+		run_term:open()
+	end
+	run_term:send("clear && cargo run\n", false)
+end
+
+-- Function to create a new temporary terminal for other cargo commands
+local function cargo_exec_temp(cmd)
+	local temp = Terminal:new({
+		cmd = "cargo " .. cmd,
+		direction = "float",
+		close_on_exit = true,
+		hidden = true,
+	})
+	temp:toggle()
+end
+
+-- Autocmd to set up keymaps for Rust
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "rust",
+	callback = function()
+		-- Run: Reuses shared terminal
+		vim.keymap.set("n", "<localleader>cr", cargo_run, { buffer = true, desc = "Cargo Run (reuses terminal)" })
+
+		-- Build/Test/Clean: Each opens a new terminal
+		vim.keymap.set("n", "<localleader>cb", function()
+			cargo_exec_temp("build")
+		end, { buffer = true, desc = "Cargo Build" })
+
+		vim.keymap.set("n", "<localleader>ct", function()
+			cargo_exec_temp("test")
+		end, { buffer = true, desc = "Cargo Test" })
+
+		vim.keymap.set("n", "<localleader>cc", function()
+			cargo_exec_temp("clean")
+		end, { buffer = true, desc = "Cargo Clean" })
+	end,
+})
