@@ -10,8 +10,14 @@ spec.config = function()
 		lua = { "selene" },
 		cmake = { "cmakelint" },
 		html = { "markuplint" },
-		css = { "stylelint" },
 		go = { "golangcilint" },
+		python = { "ruff" },
+		["javascript"] = { "biomejs" },
+		["javascriptreact"] = { "biomejs" },
+		["typescript"] = { "biomejs" },
+		["typescriptreact"] = { "biomejs" },
+		["json"] = { "biomejs" },
+		["css"] = { "biomejs" },
 	}
 
 	-- Check if linting is disabled for this filetype
@@ -41,9 +47,9 @@ spec.config = function()
 		end,
 	})
 
-	vim.keymap.set("n", "<leader>l", function()
+	vim.keymap.set({ "n", "v" }, "<leader>ll", function()
 		lint.try_lint()
-	end, { desc = "Lint buffer" })
+	end, { noremap = true, silent = true, desc = "Lint buffer" })
 end
 
 return spec
