@@ -6,22 +6,16 @@ return {
 		{ "rcarriga/nvim-notify", opts = { render = "compact", stages = "slide" } },
 	},
 	opts = {
-		-- lsp = {
-		-- 	documentation = {
-		-- 		opts = {
-		-- 			border = {
-		-- 				style = "single",
-		-- 			},
-		-- 		},
-		-- 	},
-		-- 	hover = {
-		-- 		opts = {
-		-- 			border = {
-		-- 				style = "single",
-		-- 			},
-		-- 		},
-		-- 	},
-		-- },
+		lsp = {
+			override = {
+				["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+				["vim.lsp.util.stylize_markdown"] = true,
+				["cmp.entry.get_documentation"] = true,
+			},
+			signature = {
+				enabled = false,
+			},
+		},
 	},
 	keys = {
 		{
