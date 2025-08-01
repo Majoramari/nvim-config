@@ -1,6 +1,6 @@
 return {
 	"rachartier/tiny-inline-diagnostic.nvim",
-	event = "VeryLazy",
+  lazy = false,
 	priority = 1000,
 	opts = {
 		preset = "amongus",
