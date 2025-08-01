@@ -166,5 +166,6 @@ return {
 		lspconfig.bashls.setup(default_opt)
 		lspconfig.gopls.setup(default_opt)
 		lspconfig.pyright.setup(default_opt)
+		lspconfig.rust_analyzer.setup(default_opt)
 	end,
 }
